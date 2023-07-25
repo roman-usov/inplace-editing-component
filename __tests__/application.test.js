@@ -22,18 +22,18 @@ test('application 1', async () => {
   expect(screen.getAllByRole('textbox')).toHaveLength(1);
 
   const inputName = screen.getByRole('textbox', { name: 'name' });
-  await userEvent.type(inputName, 'Hexlet');
+  await userEvent.default.type(inputName, 'Hexlet');
   const submitName = screen.getByRole('button');
-  await userEvent.click(submitName);
+  await userEvent.default.click(submitName);
   expect(inputName).not.toBeInTheDocument();
 
   const email = document.querySelector('[data-editable-target="email"]');
   await email.click();
   const inputEmail = screen.getByRole('textbox', { name: 'email' });
 
-  await userEvent.type(inputEmail, 'support@hexlet.io');
+  await userEvent.default.type(inputEmail, 'support@hexlet.io');
   const submitEmail = screen.getByRole('button');
-  await userEvent.click(submitEmail);
+  await userEvent.default.click(submitEmail);
   expect(inputEmail).not.toBeInTheDocument();
 
   expect(screen.getByText('Hexlet')).toBeInTheDocument();
@@ -46,18 +46,18 @@ test('application 2', async () => {
   expect(screen.getAllByRole('textbox')).toHaveLength(1);
 
   const inputName = screen.getByRole('textbox', { name: 'name' });
-  await userEvent.type(inputName, 'Hexlet');
+  await userEvent.default.type(inputName, 'Hexlet');
   const submitName = screen.getByRole('button', { name: 'Save name' });
 
   const email = document.querySelector('[data-editable-target="email"]');
   await email.click();
   const inputEmail = screen.getByRole('textbox', { name: 'email' });
 
-  await userEvent.type(inputEmail, 'support@hexlet.io');
+  await userEvent.default.type(inputEmail, 'support@hexlet.io');
   const submitEmail = screen.getByRole('button', { name: 'Save email' });
 
-  await userEvent.click(submitName);
-  await userEvent.click(submitEmail);
+  await userEvent.default.click(submitName);
+  await userEvent.default.click(submitEmail);
   expect(inputName).not.toBeInTheDocument();
   expect(inputEmail).not.toBeInTheDocument();
 
@@ -65,14 +65,14 @@ test('application 2', async () => {
   expect(screen.getByText('support@hexlet.io')).toBeInTheDocument();
 
   await document.querySelector('[data-editable-target="email"]').click();
-  await userEvent.clear(screen.getByRole('textbox', { name: 'email' }));
+  await userEvent.default.clear(screen.getByRole('textbox', { name: 'email' }));
 
-  await userEvent.click(screen.getByRole('button', { name: 'Save email' }));
+  await userEvent.default.click(screen.getByRole('button', { name: 'Save email' }));
 
   await document.querySelector('[data-editable-target="name"]').click();
-  await userEvent.clear(screen.getByRole('textbox', { name: 'name' }));
+  await userEvent.default.clear(screen.getByRole('textbox', { name: 'name' }));
 
-  await userEvent.click(screen.getByRole('button', { name: 'Save name' }));
+  await userEvent.default.click(screen.getByRole('button', { name: 'Save name' }));
 
   expect(screen.getByText('name')).toBeInTheDocument();
   expect(screen.getByText('email')).toBeInTheDocument();

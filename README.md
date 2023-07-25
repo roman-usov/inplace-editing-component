@@ -15,8 +15,8 @@ Example of a form for saving `name`
 <div data-editable-target="name">
   <form>
     <label class="sr-only" for="name">name</label>
-    <input type="text" id="name" name="name" value="">
-    <input type="submit" value="Save name">
+    <input type="text" id="name" name="name" value="" />
+    <input type="submit" value="Save name" />
   </form>
 </div>
 ```
@@ -27,8 +27,8 @@ Example of a form for saving `email`
 <div data-editable-target="email">
   <form>
     <label class="sr-only" for="email">email</label>
-    <input type="text" id="email" name="email" value="">
-    <input type="submit" value="Save email">
+    <input type="text" id="email" name="email" value="" />
+    <input type="submit" value="Save email" />
   </form>
 </div>
 ```
@@ -36,9 +36,7 @@ Example of a form for saving `email`
 A user has entered `Cat`
 
 ```html
-<div data-editable-target="name">
-  Cat
-</div>
+<div data-editable-target="name">Cat</div>
 ```
 
 A user has deleted all values
@@ -46,5 +44,4 @@ A user has deleted all values
 ```html
 <div data-editable-target="name"><i>name</i></div>
 <div data-editable-target="email"><i>email</i></div>
-
 ```
